@@ -1,6 +1,6 @@
 ﻿FROM leijiangping/ubuntu:16.04
 MAINTAINER leijiangping <leijiang21@126.com>
-RUN sudo apt-get update && sudo apt-get install git -y
+RUN apt-get update && apt-get install git -y
 RUN wget \
     --no-cookies \
     --no-check-certificate \
