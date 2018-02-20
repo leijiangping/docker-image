@@ -1,30 +1,17 @@
-﻿FROM leijiangping/ubuntu:16.04
+﻿FROM leijiangping/jdk
 MAINTAINER leijiangping <leijiang21@126.com>
-RUN sudo apt-get update && sudo apt-get install git -y
-LABEL che:server:8080:ref=tomcat8 che:server:8080:protocol=http che:server:8000:ref=tomcat8-debug che:server:8000:protocol=http che:server:4200:ref=shellinabox che:server:4200:protocol=http
-RUN wget \
-    --no-cookies \
-    --no-check-certificate \
-    --header "Cookie: oraclelicense=accept-securebackup-cookie" \
-    -qO- \
-    "http://download.oracle.com/otn-pub/java/jdk/8u51-b16/jdk-8u51-linux-x64.tar.gz" | sudo tar -zx -C /opt/
+RUN apt-get update 
+
+ENV CATALINA_HOME /usr/local/tomcat8
+ENV PATH $CATALINA_HOME/bin:$PATH
+RUN mkdir /usr/local/tomcat8 && \
+    wget -qO- "http://mirrors.hust.edu.cn/apache/tomcat/tomcat-8/v8.5.28/bin/apache-tomcat-8.5.28.tar.gz" | tar -zx --strip-components=1 -C /usr/local/tomcat8 && \
+    rm -rf /usr/local/tomcat8/webapps/*
      
-ENV JAVA_HOME /opt/jdk1.8.0_51
-RUN echo "export JAVA_HOME=$JAVA_HOME" >> /home/user/.bashrc
-ENV PATH $JAVA_HOME/bin:$PATH
-RUN echo "export PATH=$PATH" >> /home/user/.bashrc
-
-RUN mkdir /home/user/tomcat8 && \
-    wget -qO- "http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.24/bin/apache-tomcat-8.0.24.tar.gz" | tar -zx --strip-components=1 -C /home/user/tomcat8 && \
-    rm -rf /home/user/tomcat8/webapps/*
-     
-EXPOSE 8080 8000
-ENV CODENVY_APP_PORT_8080_HTTP 8080
-
-
-RUN mkdir -p /home/user/maven3 && \
-    wget -qO- "http://archive.apache.org/dist/maven/maven-3/3.1.1/binaries/apache-maven-3.1.1-bin.tar.gz" | tar -zx --strip-components=1 -C /home/user/maven3
-ENV M2_HOME /home/user/maven3   
-RUN echo "export M2_HOME=$M2_HOME" >> /home/user/.bashrc
+ENV M2_HOME /usr/local/maven3   
 ENV PATH $M2_HOME/bin:$PATH
-RUN echo "export PATH=$PATH" >> /home/user/.bashrc
+RUN mkdir -p /usr/local/maven3 && \
+    wget -qO- "http://mirrors.hust.edu.cn/apache/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz" | tar -zx --strip-components=1 -C /usr/local/maven3
+
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
