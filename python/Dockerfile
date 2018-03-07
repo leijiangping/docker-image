@@ -35,6 +35,7 @@ RUN pip install --upgrade pip \
 			supervisor \
 			mysql-server \
 			libmysqlclient-dev \
+# Latest versions of python3 tools via pip3
 RUN pip3 install virtualenv \
 	requests \
 	numpy \
