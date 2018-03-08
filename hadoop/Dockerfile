@@ -2,7 +2,7 @@
 MAINTAINER leijiangping <leijiang21@126.com>
 
 RUN apt-get update 
-RUN apt  install yum
+RUN apt  install yum -y \
 
 # install dev tools
 RUN yum clean all; \
