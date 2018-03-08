@@ -35,24 +35,7 @@ RUN pip install --upgrade pip \
 			supervisor \
 			mysql-server \
 			libmysqlclient-dev \
-# Latest versions of python3 tools via pip3
-RUN pip3 install --upgrade pip \
-        virtualenv \
-	requests \
-	numpy \
-	scipy \
-	matplotlib \
-	tensorflow \
-	sklearn \
-	theano \
-	nltk \
-	opencv-python \
-	test_helper \
-	matplotlib \
-	pyspark \
-	supervisor \
-	mysql-server \
-	libmysqlclient-dev \
+
 
 
 
