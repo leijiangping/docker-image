@@ -32,9 +32,6 @@ RUN pip install --upgrade pip \
 			test_helper \
 			matplotlib \
 			pyspark \
-			supervisor \
-			mysql-server \
-			libmysqlclient-dev \
 
 
 
