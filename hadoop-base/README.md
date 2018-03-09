@@ -20,8 +20,8 @@ sudo docker pull leijiangping/hadoop:1.0
 ##### 2. clone github repository
 
 ```
-git clone https://github.com/leijiangping/hadoop-cluster-docker
-```
+git clone https://github.com/leijiangping/docker-image/
+
 
 ##### 3. create hadoop network
 
