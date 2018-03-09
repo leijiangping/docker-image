@@ -1,26 +1,19 @@
 
 【本项目是在 kiwenlau/hadoop-cluster-docker 的基础上修改产生的，本人也不太懂，哈哈！凑合用】
+
+
 一. 项目介绍
 将Hadoop打包到Docker镜像中，就可以快速地在单个机器上搭建Hadoop集群，这样可以方便新手测试和学习。
 
 如下图所示，Hadoop的master和slave分别运行在不同的Docker容器中，其中hadoop-master容器中运行NameNode和ResourceManager，hadoop-slave容器中运行DataNode和NodeManager。NameNode和DataNode是Hadoop分布式文件系统HDFS的组件，负责储存输入以及输出数据，而ResourceManager和NodeManager是Hadoop集群资源管理系统YARN的组件，负责CPU和内存资源的调度。
 
-![alt tag](https://github.com/leijiangping/docker-image/blob/master/hadoop-base/hadoop-cluster-docker.png)
+            ![alt tag](https://github.com/leijiangping/docker-image/blob/master/hadoop-base/hadoop-cluster-docker.png)
 
 项目中使用以下命令为Hadoop集群创建单独的网络:
 
 sudo docker network create --driver=bridge hadoop
 然后在运行Hadoop容器时，使用"--net=hadoop"选项，这时所有容器将运行在hadoop网络中，它们可以通过容器名称进行通信。
 
-项目更新要点：
-
-去除serf/dnsmasq
-
-合并Master和Slave镜像
-
-使用kiwenlau/compile-hadoop项目编译的Hadoo进行安装
-
-优化Hadoop配置
 
 二. 3节点Hadoop集群搭建步骤
 1. 下载Docker镜像
