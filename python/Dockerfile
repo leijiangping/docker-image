@@ -31,7 +31,7 @@ RUN pip install nltk
 RUN pip install opencv-python
 RUN pip install test_helper
 RUN pip install matplotlib
-RUN pip install pyspark
+
 
 # Latest versions of python tools via pip3
 RUN pip3 install --upgrade pip
@@ -47,7 +47,7 @@ RUN pip3 install nltk
 RUN pip3 install opencv-python
 RUN pip3 install test_helper
 RUN pip3 install matplotlib
-RUN pip3 install pyspark
+
 
 
 
