@@ -19,7 +19,7 @@ sudo docker network create --driver=bridge hadoop
 1. 下载Docker镜像
 sudo docker pull leijiangping/hadoop-base
 2. 下载GitHub仓库
-git clone https://github.com/leijiangping/docker-images
+git clone https://github.com/leijiangping/docker-image
 3. 创建Hadoop网络
 sudo docker network create --driver=bridge hadoop
 4. 运行Docker容器
