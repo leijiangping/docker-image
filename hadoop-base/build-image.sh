@@ -3,6 +3,6 @@
 echo ""
 
 echo -e "\nbuild docker hadoop image\n"
-sudo docker build -t leijiangping/hadoop:1.0 .
+sudo docker build -t leijiangping/hadoop-base
 
 echo ""

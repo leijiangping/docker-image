@@ -23,6 +23,6 @@ echo ""
 echo -e "\nbuild docker hadoop image\n"
 
 # rebuild leijiangping/hadoop image
-sudo docker build -t leijiangping/hadoop:1.0 .
+sudo docker build -t leijiangping/hadoop-base .
 
 echo ""
