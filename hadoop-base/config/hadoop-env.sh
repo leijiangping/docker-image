@@ -21,8 +21,8 @@
 # set JAVA_HOME in this file, so that it is correctly defined on
 # remote nodes.
 
-# The java implementation to use.
-export JAVA_HOME=${JAVA_HOME}
+# The java implementation to use.  此处要显式生命JAVA_HOME,否则在集群环境下会报错：JAVA_HOME is not set and could not be found
+export JAVA_HOME=/opt/jdk1.8.0_161
 
 # The jsvc implementation to use. Jsvc is required to run secure datanodes
 # that bind to privileged ports to provide authentication of data transfer
