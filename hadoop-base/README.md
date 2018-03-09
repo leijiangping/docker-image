@@ -70,4 +70,4 @@ http://192.168.0.54 为运行容器的虚拟主机的IP。
 与第2步中的N保持一致。
 
 4. 运行Hadoop
-参考第二部分5~6：启动Hadoop，并运行wordcount。
+参考第二部分5~6：启动Hadoop，并运行wordcount。 
