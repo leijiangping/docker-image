@@ -1,10 +1,13 @@
 FROM leijiangping/hadoop
 
-ENV SPARK_VERSION 2.1.2
 
-ENV SPARK_BIN_URL https://www.apache.org/dist/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-without-hadoop.tgz
+ENV SPARK_VERSION 2.3.2
+
+ENV SPARK_BIN_URL http://mirrors.shu.edu.cn/apache/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz 
 
 ENV SPARK_HOME=/opt/spark-$SPARK_VERSION
+
+RUN apt-get install  curl 
 
 RUN curl -fSL "$SPARK_BIN_URL" -o /tmp/spark.tar.gz \
     && tar -xvf /tmp/spark.tar.gz -C /opt \
