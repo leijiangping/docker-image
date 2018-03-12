@@ -1,7 +1,7 @@
 FROM leijiangping/hadoop
 
 
-ENV SPARK_VERSION 2.3.2
+ENV SPARK_VERSION 2.3.0
 
 ENV SPARK_BIN_URL http://mirrors.shu.edu.cn/apache/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz 
 
