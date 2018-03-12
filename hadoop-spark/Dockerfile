@@ -6,8 +6,7 @@ ENV SPARK_BIN_URL https://www.apache.org/dist/spark/spark-$SPARK_VERSION/spark-$
 
 ENV SPARK_HOME=/opt/spark-$SPARK_VERSION
 
-RUN set -x \
-    && curl -fSL "$SPARK_BIN_URL" -o /tmp/spark.tar.gz \
+RUN curl -fSL "$SPARK_BIN_URL" -o /tmp/spark.tar.gz \
     && tar -xvf /tmp/spark.tar.gz -C /opt \
     && mv /opt/spark-$SPARK_VERSION-* $SPARK_HOME \
     && rm -f /tmp/spark.tar.gz
