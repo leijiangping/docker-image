@@ -1,6 +1,8 @@
 ﻿FROM leijiangping/jdk
 MAINTAINER leijiangping <leijiang21@126.com>
 
+ENV DEBIAN_FRONTEND noninteractive
+
 # Install packages
 RUN apt-get update && \
     apt-get -y install mysql-server \
