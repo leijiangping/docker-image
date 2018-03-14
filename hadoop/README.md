@@ -7,7 +7,7 @@
 
 如下图所示，Hadoop的master和slave分别运行在不同的Docker容器中，其中hadoop-master容器中运行NameNode和ResourceManager，hadoop-slave容器中运行DataNode和NodeManager。NameNode和DataNode是Hadoop分布式文件系统HDFS的组件，负责储存输入以及输出数据，而ResourceManager和NodeManager是Hadoop集群资源管理系统YARN的组件，负责CPU和内存资源的调度。
 
-  ![alt tag](https://github.com/leijiangping/docker-image/blob/master/hadoop-base/hadoop-cluster-docker.png)
+![alt_tag](https://github.com/leijiangping/docker-image/blob/master/hadoop/hadoop-cluster-docker.png)
 
 项目中使用以下命令为Hadoop集群创建单独的网络:
 
@@ -54,6 +54,8 @@ Hadoop网页管理地址:
 NameNode: http://192.168.0.54:50070/
 
 ResourceManager: http://192.168.0.54:8088/
+
+HDFS访问地址:     hdfs://hadoop-master:9000/
 
 http://192.168.0.54 为运行容器的虚拟主机的IP。
 
