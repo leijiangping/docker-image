@@ -25,6 +25,7 @@ do
 	echo "start hadoop-slave$i container..."
 	sudo docker run -itd \
 	                --net=hadoop \
+			-p 9000:9000 \
 	                --name hadoop-slave$i \
 	                --hostname hadoop-slave$i \
 	                leijiangping/hadoop &> /dev/null
