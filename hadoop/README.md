@@ -55,6 +55,8 @@ NameNode: http://192.168.0.54:50070/
 
 ResourceManager: http://192.168.0.54:8088/
 
+HDFS访问地址:     hdfs://hadoop-master:9000/
+
 http://192.168.0.54 为运行容器的虚拟主机的IP。
 
 三. N节点Hadoop集群搭建步骤
