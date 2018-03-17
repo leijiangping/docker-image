@@ -27,15 +27,11 @@ RUN apt-get update \
 	
 
 # HUE install -------------
-#ENV HUE_VERSION cdh5.3.0-release
-ENV HUE_VERSION release-3.7.1
+ENV HUE_VERSION release-4.1.0
 WORKDIR /opt/hue
 
-RUN curl -k -SL "https://github.com/cloudera/hue/archive/$HUE_VERSION.tar.gz" \
+RUN curl -k -SL "https://codeload.github.com/cloudera/hue/tar.gz/release-4.1.0" \
 	| tar -xzf - -C /opt/hue --strip-components=1
-
-
-
 
 # SUPERVISOR -------------
 COPY supervisord-hue.conf /etc/supervisor/conf.d/supervisord-hue.conf
@@ -44,9 +40,6 @@ COPY supervisord-hue.conf /etc/supervisor/conf.d/supervisord-hue.conf
 RUN make apps && rm -Rf /root/.m2
 
 RUN useradd hue -r && chown hue:hue /opt/hue/desktop && chown hue:hue /opt/hue/desktop/desktop.db
-
-# DOCKER -------------
-#VOLUME /opt/hue/desktop/conf /opt/hue/desktop/desktop.db desktop/app ?
 
 # Supervisord web interface -------
 EXPOSE 9999
