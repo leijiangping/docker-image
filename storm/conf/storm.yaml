@@ -1,8 +1,8 @@
 #storm configuration
 storm.zookeeper.servers:
-    - "120.27.20.12"
+    - "192.168.0.54"
   
-storm.zookeeper.port: 9006  
+storm.zookeeper.port: 2181  
   
 storm.local.dir: "/root/storm-local" 
 
