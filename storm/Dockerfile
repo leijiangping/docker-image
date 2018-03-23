@@ -8,7 +8,7 @@ WORKDIR /root
 RUN wget http://mirrors.shu.edu.cn/apache/storm/apache-storm-1.2.1/apache-storm-1.2.1.tar.gz && \
     tar -xzvf apache-storm-1.2.1.tar.gz && \
     mv apache-storm-1.2.1 /usr/local/storm && \
-    rm apache-storm-1.2.1
+    rm apache-storm-1.2.1.tar.gz
 
 # set environment variable
 ENV STORM_HOME /usr/local/storm
