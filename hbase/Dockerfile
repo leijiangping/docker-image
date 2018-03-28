@@ -32,5 +32,6 @@ EXPOSE 16010
 EXPOSE 16020
 # HBase Regionserver web UI
 EXPOSE 16030
-
+# HBase.rest.port
+EXPOSE 8080
 CMD hbase master start
