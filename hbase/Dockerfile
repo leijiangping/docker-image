@@ -35,4 +35,4 @@ EXPOSE 60020
 # HBase Regionserver web UI
 EXPOSE 60030
 
-CMD /opt/hbase/hbase-0.90.6-cdh3u6/bin/hbase master start
+CMD /opt/hbase/bin/hbase master start
