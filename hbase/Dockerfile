@@ -11,8 +11,6 @@ ENV HBASE_URL http://mirror.bit.edu.cn/apache/hbase/stable/hbase-1.2.6-bin.tar.g
 
 ENV HBASE_HOME=/opt/hbase
 
-RUN mkdir -p /opt/hbase
-
 RUN apt-get install  curl   -y
 
 RUN curl -fSL $HBASE_URL -o /tmp/hbase.tar.gz \
@@ -20,7 +18,7 @@ RUN curl -fSL $HBASE_URL -o /tmp/hbase.tar.gz \
     && mv /opt/hbase-$HBASE_VERSION  $HBASE_HOME \
     && rm -f /tmp/hbase.tar.gz
 
-COPY  conf/*    $HBASE_HOME/conf
+COPY  conf/*    /opt/hbase/conf/
 
 ENV PATH=$PATH:/opt/hbase/bin
 
