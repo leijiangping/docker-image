@@ -14,13 +14,10 @@ RUN wget http://mirrors.shu.edu.cn/apache/storm/apache-storm-1.2.1/apache-storm-
 ENV STORM_HOME /usr/local/storm
 ENV PATH=$PATH:/usr/local/storm/bin
 
-RUN mkdir /conf
-RUN mkdir /data
-RUN mkdir /logs
-RUN mkdir /storm-local
+COPY conf/* $STORM_HOME/conf
 
-COPY conf/* /conf
 
-RUN mv /conf/storm.yaml $STORM_HOME/storm.yaml
+RUN mkdir /storm/data
+RUN mkdir /storm/logs
 
 EXPOSE 8080
