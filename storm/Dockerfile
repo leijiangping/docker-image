@@ -1,8 +1,8 @@
 ﻿FROM leijiangping/jdk
 MAINTAINER leijiangping <leijiang21@126.com>
-RUN apt-get update 
+RUN apt-get update
 
-WORKDIR /root
+RUN apt-get install python -y
 
 # install storm
 RUN wget http://mirrors.shu.edu.cn/apache/storm/apache-storm-1.2.1/apache-storm-1.2.1.tar.gz && \
@@ -16,15 +16,9 @@ ENV PATH=$PATH:/usr/local/storm/bin
 
 COPY conf/* $STORM_HOME/conf/
 
-RUN mkdir /storm
-
-WORKDIR /root/storm
-
-RUN mkdir /storm/data
-RUN mkdir /storm/logs
-
 #storm nimbus
 EXPOSE 6627
 #storm ui 
 EXPOSE 8080
 
+CMD ["/bin/bash"] 

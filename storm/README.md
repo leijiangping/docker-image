@@ -10,10 +10,10 @@ Apache Zookeeper is a must for running a Storm cluster. Start it first. Since th
 $ docker run -d --restart always --name some-zookeeper zookeeper
 The Nimbus daemon has to be connected with the Zookeeper. It's also a "fail fast" system.
 
-$ docker run -d --restart always --name some-nimbus --link some-zookeeper:zookeeper leijiangping/storm storm nimbus
+$ docker run -d --restart always --name some-nimbus  leijiangping/storm storm nimbus
 Finally start a single Supervisor node. It will talk to the Nimbus and Zookeeper.
 
-$ docker run -d --restart always --name supervisor --link some-zookeeper:zookeeper --link some-nimbus:nimbus leijiangping/storm storm supervisor
+$ docker run -d --restart always --name supervisor leijiangping/storm storm supervisor
 Now you can submit a topology to our cluster.
 
 $ docker run --link some-nimbus:nimbus -it --rm -v $(pwd)/topology.jar:/topology.jar leijiangping/storm storm jar /topology.jar org.apache.storm.starter.WordCountTopology topology
