@@ -13,7 +13,7 @@ ENV HBASE_HOME=/opt/hbase
 
 RUN mkdir -p /opt/hbase
 
-RUN apt-get install  curl 
+RUN apt-get install  curl   -y
 
 RUN curl -fSL "HBASE_URL" -o /tmp/hbase.tar.gz \
     && tar -xvf /tmp/hbase.tar.gz -C /opt \
