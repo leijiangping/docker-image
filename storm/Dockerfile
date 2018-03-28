@@ -16,6 +16,9 @@ ENV PATH=$PATH:/usr/local/storm/bin
 
 COPY conf/* $STORM_HOME/conf
 
+RUN mkdir /storm
+
+WORKDIR /root/storm
 
 RUN mkdir /storm/data
 RUN mkdir /storm/logs
