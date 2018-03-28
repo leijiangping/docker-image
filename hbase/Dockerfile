@@ -27,12 +27,12 @@ ENV PATH=$PATH:/opt/hbase/bin
 # zookeeper
 EXPOSE 2181
 # HBase Master API port
-EXPOSE 60000
+EXPOSE 16000
 # HBase Master Web UI
-EXPOSE 60010
+EXPOSE 16010
 # Regionserver API port
-EXPOSE 60020
+EXPOSE 16020
 # HBase Regionserver web UI
-EXPOSE 60030
+EXPOSE 16030
 
-CMD /opt/hbase/bin/hbase master start
+CMD hbase master start
