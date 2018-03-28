@@ -16,6 +16,8 @@ ENV PATH=$PATH:/usr/local/storm/bin
 
 COPY conf/* $STORM_HOME/conf/
 
+ADD start_nimbus_and_ui.sh   /
+
 #storm nimbus
 EXPOSE 6627
 #storm ui 
