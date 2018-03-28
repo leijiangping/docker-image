@@ -14,7 +14,7 @@ RUN wget http://mirrors.shu.edu.cn/apache/storm/apache-storm-1.2.1/apache-storm-
 ENV STORM_HOME /usr/local/storm
 ENV PATH=$PATH:/usr/local/storm/bin
 
-COPY conf/* $STORM_HOME/conf
+COPY conf/* $STORM_HOME/conf/
 
 RUN mkdir /storm
 
@@ -23,4 +23,8 @@ WORKDIR /root/storm
 RUN mkdir /storm/data
 RUN mkdir /storm/logs
 
+#storm nimbus
+EXPOSE 6627
+#storm ui 
 EXPOSE 8080
+
