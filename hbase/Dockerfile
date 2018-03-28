@@ -17,7 +17,7 @@ RUN apt-get install  curl   -y
 
 RUN curl -fSL $HBASE_URL -o /tmp/hbase.tar.gz \
     && tar -xvf /tmp/hbase.tar.gz -C /opt \
-    && mv /opt/hbase-$HBASE_VERSION-* $HBASE_HOME \
+    && mv /opt/hbase-$HBASE_VERSION  $HBASE_HOME \
     && rm -f /tmp/hbase.tar.gz
 
 COPY  conf/*    $HBASE_HOME/conf
