@@ -1,5 +1,6 @@
-FROM studioetrange/docker-debian:wheezy
-MAINTAINER StudioEtrange <nomorgan@gmail.com>
+FROM leijiangping/jdk
+MAINTAINER leijiangping <leijiang21@126.com>
+RUN apt-get update 
 
 # DEBIAN packages : HUE dependencies install ----------
 RUN apt-get update \
@@ -44,9 +45,6 @@ COPY supervisord-hue.conf /etc/supervisor/conf.d/supervisord-hue.conf
 RUN make apps && rm -Rf /root/.m2
 
 RUN useradd hue -r && chown hue:hue /opt/hue/desktop && chown hue:hue /opt/hue/desktop/desktop.db
-
-# DOCKER -------------
-#VOLUME /opt/hue/desktop/conf /opt/hue/desktop/desktop.db desktop/app ?
 
 # Supervisord web interface -------
 EXPOSE 9999
