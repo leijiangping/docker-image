@@ -7,7 +7,8 @@ ENV SPARK_BIN_URL http://mirrors.shu.edu.cn/apache/spark/spark-2.3.0/spark-2.3.0
 
 ENV SPARK_HOME=/opt/spark-$SPARK_VERSION
 
-RUN apt-get upgrade
+RUN apt-get upgrade  -y
+RUN apt-get update
 
 RUN apt-get install  curl  -y
 
