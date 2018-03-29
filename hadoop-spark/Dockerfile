@@ -7,14 +7,11 @@ ENV SPARK_BIN_URL http://mirrors.shu.edu.cn/apache/spark/spark-2.3.0/spark-2.3.0
 
 ENV SPARK_HOME=/opt/spark-$SPARK_VERSION
 
-RUN apt-get upgrade  -y
-RUN apt-get update
-
-RUN apt-get install  curl  -y
+RUN apt-get install  curl 
 
 RUN curl -fSL "$SPARK_BIN_URL" -o /tmp/spark.tar.gz \
     && tar -xvf /tmp/spark.tar.gz -C /opt \
-    && mv /opt/spark-$SPARK_VERSION $SPARK_HOME \
+    && mv /opt/spark-$SPARK_VERSION-* $SPARK_HOME \
     && rm -f /tmp/spark.tar.gz
 
 WORKDIR $SPARK_HOME
@@ -34,4 +31,3 @@ RUN chmod a+x \
 RUN echo "export SPARK_DIST_CLASSPATH=$(hadoop classpath)" >> /opt/spark-$SPARK_VERSION/conf/spark-env.sh
 
 ENTRYPOINT ["/spark-entrypoint.sh"]
-
