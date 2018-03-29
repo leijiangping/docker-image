@@ -11,7 +11,7 @@ RUN apt-get install  curl
 
 RUN curl -fSL "$SPARK_BIN_URL" -o /tmp/spark.tar.gz \
     && tar -xvf /tmp/spark.tar.gz -C /opt \
-    && mv /opt/spark-$SPARK_VERSION-* $SPARK_HOME \
+    && mv /opt/spark-$SPARK_VERSION $SPARK_HOME \
     && rm -f /tmp/spark.tar.gz
 
 WORKDIR $SPARK_HOME
