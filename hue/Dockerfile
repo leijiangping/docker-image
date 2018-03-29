@@ -1,55 +1,37 @@
 FROM leijiangping/jdk
 MAINTAINER leijiangping <leijiang21@126.com>
-RUN apt-get update 
 
-# DEBIAN packages : HUE dependencies install ----------
-RUN apt-get update \
-	&& DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-						ant \
-						gcc \
-						g++ \
-						build-essential \
-						libkrb5-dev \
-						libmysqlclient-dev \
-						libssl-dev \
-						libsasl2-dev \
-						libsasl2-modules-gssapi-mit \
-						libsqlite3-dev \
-						libtidy-0.99-0 \
-						libxml2-dev \
-						libxslt-dev \
-						maven \
-						libldap2-dev \
-						python-dev  \
-						python-simplejson \
-						python-setuptools \
-						openjdk-7-jdk \
-	&& rm -rf /var/lib/apt/lists/*
-	
+RUN apt-get update -y
 
-# HUE install -------------
-#ENV HUE_VERSION cdh5.3.0-release
-ENV HUE_VERSION release-3.7.1
-WORKDIR /opt/hue
+RUN apt-get install -y software-properties-common
+RUN apt-get update -y
 
-RUN curl -k -SL "https://github.com/cloudera/hue/archive/$HUE_VERSION.tar.gz" \
-	| tar -xzf - -C /opt/hue --strip-components=1
+RUN apt-get install --fix-missing -q -y \
+  git \
+  ant \
+  gcc \
+  g++ \
+  libkrb5-dev \
+  libmysqlclient-dev \
+  libssl-dev \
+  libsasl2-dev \
+  libsasl2-modules-gssapi-mit \
+  libsqlite3-dev \
+  libtidy-0.99-0 \
+  libxml2-dev \
+  libxslt-dev \
+  libffi-dev \
+  make \
+  maven \
+  libldap2-dev \
+  python-dev \
+  python-setuptools \
+  libgmp3-dev \
+  libz-dev
 
-
-
-
-# SUPERVISOR -------------
-COPY supervisord-hue.conf /etc/supervisor/conf.d/supervisord-hue.conf
-
-# BUILD
-RUN make apps && rm -Rf /root/.m2
-
-RUN useradd hue -r && chown hue:hue /opt/hue/desktop && chown hue:hue /opt/hue/desktop/desktop.db
-
-# Supervisord web interface -------
-EXPOSE 9999
-# hue http port
-EXPOSE 8000
-
-# run command by default
-CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf", "-n"]
+RUN git clone https://github.com/cloudera/hue.git
+WORKDIR hue
+RUN make apps
+EXPOSE 8888
+VOLUME /hue/desktop/
+CMD ["build/env/bin/hue", "runserver_plus", "0.0.0.0:8888"]
