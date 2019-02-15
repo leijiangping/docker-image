@@ -1,0 +1,17 @@
+#storm configuration
+storm.zookeeper.servers:
+    - "192.168.0.54"
+  
+storm.zookeeper.port: 2181  
+  
+storm.local.dir: "/root/storm-local" 
+
+nimbus.seeds: ["storm-master"]  
+  
+supervisor.slots.ports:  
+    - 6700  
+    - 6701   
+  
+storm.health.check.dir: "healthchecks"  
+  
+storm.health.check.timeout.ms: 5000  
