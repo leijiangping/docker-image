@@ -7,7 +7,7 @@ ADD scripts /scripts
 RUN chmod +x /scripts/*.sh
 RUN mkdir /apps
 RUN mkdir /apps/jars
-RUN chmod +x /apps/jars/*.jar
+RUN chmod -R +x /apps/jars
 # Expose listen port
 EXPOSE 8080  8070
 
