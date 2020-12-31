@@ -4,9 +4,7 @@ RUN apt-get update
 
 #
 ENV ServerPort=8080
-ENV APPEND_JAVA_OPTS=""
-ENV Default_JAVA_OPTS=" -Xms512m -Xmx512m -Dfile.encoding=utf-8"
-ENV JAVA_OPTS=$Default_JAVA_OPTS:$APPEND_JAVA_OPTS;
+ENV JAVA_OPTS=""
 # Add scripts
 ADD scripts /scripts
 RUN chmod +x /scripts/*.sh
