@@ -3,7 +3,9 @@ MAINTAINER leijiangping <leijiang21@126.com>
 RUN apt-get update 
 
 #
-ENV ServerPort=8080
+ENV ServerIp=""
+ENV ServerPort=""
+ENV DebugPort=""
 ENV JAVA_OPTS=""
 # Add scripts
 ADD scripts /scripts
@@ -12,7 +14,7 @@ RUN mkdir /apps
 RUN mkdir /apps/jars
 RUN chmod -R +x /apps/jars
 # Expose listen port
-EXPOSE  8070  $ServerPort
+EXPOSE  $ServerPort $DebugPort
 
 # Expose our volumes
 VOLUME ["/apps/jars","/apps/logs"]
