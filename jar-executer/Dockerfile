@@ -14,7 +14,7 @@ RUN mkdir /apps
 RUN mkdir /apps/jars
 RUN chmod -R +x /apps/jars
 # Expose listen port
-EXPOSE  $ServerPort $DebugPort
+EXPOSE  8080  $ServerPort $DebugPort
 
 # Expose our volumes
 VOLUME ["/apps/jars","/apps/logs"]
