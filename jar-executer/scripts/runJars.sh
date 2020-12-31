@@ -15,7 +15,7 @@ fi;
 appCount=0
 ls  $rootDir | grep  .jar |wc -l
 #
-JAVA_OPTS=" -Xms512m -Xmx512m -Dserver.port=$ServerPort -Dfile.encoding=utf-8"
+JAVA_OPTS=" -Xms512m -Xmx512m  -Dserver.ip=$ServerIp -Dserver.port=$ServerPort -Dfile.encoding=utf-8"
 #运行JARS
 for element in `ls $rootDir| grep .jar`
 do
